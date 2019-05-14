@@ -1,0 +1,55 @@
+// 20190513150910
+// https://www.allego.eu/api/feature/experienceaccelerator/areas/chargepointmap/getchargepoints/NLALLEGO001527
+
+{
+  "address": {
+    "addressLine1": "Rembrandtweg 405",
+    "addressLine2": null,
+    "postalCode": "1181 GM",
+    "city": "Amstelveen",
+    "stateProvince": null,
+    "country": "NL"
+  },
+  "capabilities": [
+    "CreateTicketAM",
+    "SmoovCompatible",
+    "ViaCommunicator"
+  ],
+  "contact": {
+    "contactCenter": null,
+    "email": null,
+    "phone": "+318003745337",
+    "website": null
+  },
+  "evses": [
+    {
+      "connectorType": "IEC_62196_T2",
+      "current": "AC",
+      "displayName": "TYPE_2",
+      "id": 1,
+      "maxPower": 11.0,
+      "status": "Available"
+    },
+    {
+      "connectorType": "IEC_62196_T2",
+      "current": "AC",
+      "displayName": "TYPE_2",
+      "id": 2,
+      "maxPower": 11.0,
+      "status": "Available"
+    }
+  ],
+  "sources": [
+    "Allego"
+  ],
+  "cpoOrganisationId": "Allego",
+  "brand": "Allego",
+  "id": "NLALLEGO001527",
+  "chargePointId": "NLALLEGO001527",
+  "chargePointStatus": "Available",
+  "connectivityStatus": "Online",
+  "location": {
+    "latitude": 52.3125553,
+    "longitude": 4.8630987
+  }
+}

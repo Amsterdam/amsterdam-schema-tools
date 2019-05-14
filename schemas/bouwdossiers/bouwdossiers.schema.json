@@ -12,7 +12,7 @@
       "type": "string"
     },
     "datering": {
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/YearOptionalMonthOptionalDay"
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/yearOptionalMonthOptionalDay"
     },
     "dossiertype": {
       "type": "string"

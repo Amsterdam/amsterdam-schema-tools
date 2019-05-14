@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.data.amsterdam.nl/v0.1/monumenten",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "architect": {
+      "type": "string"
+    },
+    "periodeStart": {
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/yearOptionalMonthOptionalDay"
+    },
+    "periodeEind": {
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/yearOptionalMonthOptionalDay"
+    },
+    "functie":  {
+      "type": "string"
+    },
+    "geometry": {
+      "$ref": "https://geojson.org/schema/Geometry.json"
+    },
+    "beschrijving": {
+      "type": "string"
+    },
+    "adres": {
+      "$id": "https://schemas.data.amsterdam.nl/v0.1/bag#nummeraanduiding",
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/uri"
+    }
+  }
+}

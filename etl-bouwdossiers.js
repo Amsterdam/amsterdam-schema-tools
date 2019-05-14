@@ -1,13 +1,12 @@
-const fs = require('fs')
+#! /usr/bin/env node
+
 const util = require('util')
 const R = require('ramda')
 const H = require('highland')
 const convert = require('xml-js')
 
-const enrich = require('./enrich')
-const Validate = require('./validate')
-
-const filename = '/Users/bert/code/amsterdam/bouwdossiers/xml/SAA_BWT_XML_20190417%2FSAA_BWT_01.xml'
+const enrich = require('./lib/enrich')
+const Validate = require('./lib/validate')
 
 const text = R.prop('_text')
 
@@ -60,7 +59,7 @@ const splitTag = 'dossier'
 // ============================================================================
 // Extract:
 // ============================================================================
-H(fs.createReadStream(filename))
+H(process.stdin)
   .splitBy(`</${splitTag}>`)
   .filter((xml) => xml.trim().startsWith(`<${splitTag}>`))
   .map((xml) => `${xml}</${splitTag}>`)
@@ -69,14 +68,26 @@ H(fs.createReadStream(filename))
 // ============================================================================
 // Transform:
 // ============================================================================
+  .filter((dossier) => {
+    // TODO: this is only temporary!
+    const files = ensureArray(dossier.subDossiers.subDossier)
+      .map((subdossier) => ensureArray(subdossier.bestanden.url).map(text))
+      .flat()
+
+    return files.length
+  })
   .flatMap((dossier) => H(transform(dossier)))
   .map((dossier) => validate(dossier))
-  .errors((err) => {
-    console.error('Validation error!!!')
-    console.error('Data:')
-    console.error(inspect(err.data))
-    console.error('Errors:')
-    console.error(inspect(err.errors))
+  .errors((err, push) => {
+    if (err.name === 'ValidationException') {
+      console.error('Validation error!!!')
+      console.error('Data:')
+      console.error(inspect(err.data))
+      console.error('Errors:')
+      console.error(inspect(err.errors))
+    } else {
+      push(err)
+    }
   })
 // ============================================================================
 // Load:

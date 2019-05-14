@@ -7,7 +7,7 @@
       "pattern": "^https://api.data.amsterdam.nl/",
       "format": "uri"
     },
-    "YearOptionalMonthOptionalDay": {
+    "yearOptionalMonthOptionalDay": {
       "oneOf": [
         {
           "type": "string",
@@ -22,6 +22,25 @@
           "format": "date"
         }
       ]
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
     }
   }
 }

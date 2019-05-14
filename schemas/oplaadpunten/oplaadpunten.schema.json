@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.data.amsterdam.nl/v0.1/oplaadpunten",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "geometry": {
+      "description": "Coordinates of the charging location",
+      "$ref": "https://geojson.org/schema/Geometry.json"
+    },
+    "id": {
+      "description": "Identifier",
+      "type": "string"
+    },
+    "address": {
+      "description": "Street address closest to charging station",
+      "$id": "https://schemas.data.amsterdam.nl/v0.1/bag#verblijfsobject",
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/uri"
+    },
+    "available": {
+      "description": "Availability",
+      "type": "boolean"
+    },
+    "connected": {
+      "type": "boolean"
+    },
+    "contact": {
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/contact"
+    },
+    "capabilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "CreateTicketAM",
+          "SmoovCompatible",
+          "ViaCommunicator",
+          "SmsResetEnabled",
+          "RebuildTwoToThreeMeters",
+          "TeslaAdapter"
+        ]
+      }
+    },
+    "evses": {
+      "description": "List of EVSEs (electric vehicle supply equipment)",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "connectorType": {
+            "type": "string"
+          },
+          "maxPower": {
+            "description": "Charging capacity",
+            "$ref": "https://schemas.data.amsterdam.nl/v0.1/units#/definitions/kw"
+          }
+        }
+      }
+    }
+  }
+}
