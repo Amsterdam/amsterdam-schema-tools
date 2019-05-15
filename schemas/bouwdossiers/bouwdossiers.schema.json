@@ -25,6 +25,7 @@
     },
     "adressen": {
       "type": "array",
+      "description": "Lijst van adressesn waarop dit bouwdossier betrekking heeft",
       "items": {
         "$id": "https://schemas.data.amsterdam.nl/v0.1/bag#verblijfsobject",
         "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/uri"
