@@ -3,31 +3,41 @@
   "$id": "https://schemas.data.amsterdam.nl/v0.1/oplaadpunten",
   "type": "object",
   "additionalProperties": false,
+  "required": [
+    "id",
+    "dataset",
+    "type",
+    "geometry"
+  ],
   "properties": {
-    "geometry": {
-      "description": "Coordinates of the charging location",
-      "$ref": "https://geojson.org/schema/Geometry.json"
-    },
     "id": {
-      "description": "Identifier",
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/id"
+    },
+    "type": {
       "type": "string"
+    },
+    "dataset": {
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/dataset"
     },
     "address": {
       "description": "Street address closest to charging station",
-      "$id": "https://schemas.data.amsterdam.nl/v0.1/bag#verblijfsobject",
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/uri"
+      "$class": "https://schemas.data.amsterdam.nl/v0.1/bag#/definitions/nummeraanduiding",
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/uri"
     },
     "available": {
       "description": "Availability",
       "type": "boolean"
     },
     "connected": {
+      "description": "Connected",
       "type": "boolean"
     },
     "contact": {
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/contact"
+      "description": "Contact",
+      "type": "object"
     },
     "capabilities": {
+      "description": "Capabilities",
       "type": "array",
       "uniqueItems": true,
       "items": {
@@ -54,10 +64,14 @@
           },
           "maxPower": {
             "description": "Charging capacity",
-            "$ref": "https://schemas.data.amsterdam.nl/v0.1/units#/definitions/kw"
+            "type": "number"
           }
         }
       }
+    },
+    "geometry": {
+      "description": "Coordinates of the charging location",
+      "type": "object"
     }
   }
 }

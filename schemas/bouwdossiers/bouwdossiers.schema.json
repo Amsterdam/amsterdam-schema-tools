@@ -3,24 +3,44 @@
   "$id": "https://schemas.data.amsterdam.nl/v0.1/bouwdossiers",
   "type": "object",
   "additionalProperties": false,
+  "required": [
+    "id",
+    "dataset",
+    "type"
+  ],
   "properties": {
+    "id": {
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/id"
+    },
+    "type": {
+      "type": "string"
+    },
+    "dataset": {
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/dataset"
+    },
     "stadsdeel": {
-      "$id": "https://schemas.data.amsterdam.nl/v0.1/gebieden#stadsdeel",
+      "description": "Stadsdeel",
+      "$class": "https://schemas.data.amsterdam.nl/v0.1/gebieden#stadsdeel",
       "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/uri"
     },
     "titel": {
+      "description": "Titel",
       "type": "string"
     },
     "datering": {
+      "description": "Datering",
       "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/yearOptionalMonthOptionalDay"
     },
     "dossiertype": {
+      "description": "Dossiertype",
       "type": "string"
     },
     "openbaar": {
+      "description": "Openbaar",
       "type": "boolean"
     },
     "dossiernummer": {
+      "description": "Dossiernummer",
       "type": "string"
     },
     "adressen": {
@@ -32,6 +52,7 @@
       }
     },
     "subdossiers": {
+      "description": "Subdossiers",
       "type": "array",
       "items": {
         "type": "object",

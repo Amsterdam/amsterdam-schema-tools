@@ -3,30 +3,48 @@
   "$id": "https://schemas.data.amsterdam.nl/v0.1/monumenten",
   "type": "object",
   "additionalProperties": false,
+  "required": [
+    "id",
+    "dataset",
+    "type"
+  ],
   "properties": {
     "id": {
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/id"
+    },
+    "type": {
       "type": "string"
     },
+    "dataset": {
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/dataset"
+    },
     "architect": {
+      "description": "Naam van architect",
       "type": "string"
     },
     "periodeStart": {
+      "description": "Datum (begin)",
       "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/yearOptionalMonthOptionalDay"
     },
     "periodeEind": {
+      "description": "Datum (eind)",
       "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/yearOptionalMonthOptionalDay"
     },
     "functie":  {
+      "description": "Functie",
       "type": "string"
     },
     "geometry": {
-      "$ref": "https://geojson.org/schema/Geometry.json"
+      "description": "Geometrie",
+      "type": "object"
     },
     "beschrijving": {
+      "description": "Omschrijving",
       "type": "string"
     },
     "adres": {
-      "$id": "https://schemas.data.amsterdam.nl/v0.1/bag#nummeraanduiding",
+      "description": "Adres",
+      "$class": "https://schemas.data.amsterdam.nl/v0.1/bag#nummeraanduiding",
       "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/uri"
     }
   }

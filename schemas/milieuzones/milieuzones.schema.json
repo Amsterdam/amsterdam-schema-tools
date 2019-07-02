@@ -3,9 +3,20 @@
   "$id": "https://schemas.data.amsterdam.nl/v0.1/milieuzones",
   "type": "object",
   "additionalProperties": false,
+  "required": [
+    "id",
+    "dataset",
+    "type"
+  ],
   "properties": {
     "id": {
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/id"
+    },
+    "type": {
       "type": "string"
+    },
+    "dataset": {
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/dataset"
     },
     "verkeerstype": {
       "type": "string",

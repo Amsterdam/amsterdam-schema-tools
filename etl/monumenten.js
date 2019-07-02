@@ -1,19 +1,13 @@
 #! /usr/bin/env node
 
-const util = require('util')
 const R = require('ramda')
 const H = require('highland')
-const convert = require('xml-js')
 
-const enrich = require('./lib/enrich')
-const geo = require('./lib/geo')
-const Validate = require('./lib/validate')
+const enrich = require('../lib/enrich')
+const geo = require('../lib/geo')
+const parseXml = require('../parsers/xml')
 
 const text = R.prop('_text')
-
-function inspect (obj) {
-  return util.inspect(obj, {depth: null, colors: true})
-}
 
 function ensureArray (item) {
   if (!item) {
@@ -67,35 +61,15 @@ async function transform (object) {
   }
 }
 
-const validate = Validate.createValidator('monumenten')
-
-const splitTag = 'Object'
-
 // ============================================================================
 // Extract:
 // ============================================================================
 H(process.stdin)
-  .splitBy(`</${splitTag}>`)
-  .filter((xml) => xml.trim().startsWith(`<${splitTag}>`))
-  .map((xml) => `${xml}</${splitTag}>`)
-  .map((xml) => convert.xml2js(xml, {compact: true}).Object)
-  .compact()
+  .through(parseXml('Object'))
 // ============================================================================
 // Transform:
 // ============================================================================
   .flatMap((object) => H(transform(object)))
-  .map((object) => validate(object))
-  .errors((err, push) => {
-    if (err.name === 'ValidationException') {
-      console.error('Validation error!!!')
-      console.error('Data:')
-      console.error(inspect(err.data))
-      console.error('Errors:')
-      console.error(inspect(err.errors))
-    } else {
-      push(err)
-    }
-  })
 // ============================================================================
 // Load:
 // ============================================================================

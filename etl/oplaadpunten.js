@@ -1,18 +1,12 @@
 #! /usr/bin/env node
 
-const util = require('util')
 const H = require('highland')
 
-const fetch = require('./lib/cached-fetch')
-const enrich = require('./lib/enrich')
-const Validate = require('./lib/validate')
+const fetch = require('../lib/cached-fetch')
+const enrich = require('../lib/enrich')
 
 const baseUrl = 'https://www.allego.eu/api/feature/experienceaccelerator/areas/chargepointmap/getchargepoints'
 const boundsParams = '?firstPoint=52.287,4.768&secondPoint=52.425,5.014'
-
-function inspect (obj) {
-  return util.inspect(obj, {depth: null, colors: true})
-}
 
 function stringToBoolean (str, strTrue, strFalse, strUndefined) {
   if (str === strTrue) {
@@ -46,7 +40,9 @@ async function transform (oplaadpunt) {
   }
 
   return {
-    id: data.id,
+    id: data.id.toLowerCase(),
+    dataset: 'oplaadpunten',
+    type: 'oplaadpunt',
     geometry: {
       type: 'Point',
       coordinates: [
@@ -57,7 +53,7 @@ async function transform (oplaadpunt) {
     address: await enrich.bag.searchAddress(data.address.addressLine1),
     available,
     connected: stringToBoolean(data.connectivityStatus, 'Online', 'Offline', 'Unknown'),
-    contact: {
+    contact: data.contact && {
       phone: data.contact.phone ? data.contact.phone : undefined,
       email: data.contact.email ? data.contact.email.trim() : undefined,
       website: data.contact.website ? data.contact.website.trim() : undefined
@@ -70,8 +66,6 @@ async function transform (oplaadpunt) {
   }
 }
 
-const validate = Validate.createValidator('oplaadpunten')
-
 // ============================================================================
 // Extract:
 // ============================================================================
@@ -82,18 +76,6 @@ H(fetch(`${baseUrl}${boundsParams}`))
 // ============================================================================
   .flatMap((oplaadpunt) => H(transform(oplaadpunt)))
   .compact()
-  .map((oplaadpunt) => validate(oplaadpunt))
-  .errors((err, push) => {
-    if (err.name === 'ValidationException') {
-      console.error('Validation error!!!')
-      console.error('Data:')
-      console.error(inspect(err.data))
-      console.error('Errors:')
-      console.error(inspect(err.errors))
-    } else {
-      push(err)
-    }
-  })
 // ============================================================================
 // Load:
 // ============================================================================

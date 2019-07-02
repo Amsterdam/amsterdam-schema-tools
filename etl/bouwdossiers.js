@@ -1,12 +1,10 @@
 #! /usr/bin/env node
 
-const util = require('util')
 const R = require('ramda')
 const H = require('highland')
-const convert = require('xml-js')
 
-const enrich = require('./lib/enrich')
-const Validate = require('./lib/validate')
+const enrich = require('../lib/enrich')
+const parseXml = require('../parsers/xml')
 
 const text = R.prop('_text')
 
@@ -16,10 +14,6 @@ function ensureArray (item) {
   }
 
   return item.length ? item : [item]
-}
-
-function inspect (obj) {
-  return util.inspect(obj, {depth: null, colors: true})
 }
 
 function parseDate (str) {
@@ -32,14 +26,19 @@ async function transform (dossier) {
     .filter((adres) => adres.huisnummerVan)
 
   const subdossiers = ensureArray(dossier.subDossiers.subDossier)
+  const stadsdeelcode = dossier.stadsdeelcode._text
+  const dossiernummer = dossier.dossierNr._text
 
   return {
+    id: `${stadsdeelcode}${dossiernummer}`,
+    dataset: 'stadsarchief',
+    type: 'bouwdossiers',
     dossiernummer: dossier.dossierNr._text,
     titel: dossier.titel._text,
     datering: parseDate(dossier.datering._text),
     dossiertype: dossier.dossierType._text,
     openbaar: dossier.openbaar._text === 'J',
-    stadsdeel: await enrich.gebieden.stadsdeelFromCode(dossier.stadsdeelcode._text[1]),
+    stadsdeel: await enrich.gebieden.stadsdeelFromCode(stadsdeelcode[1]),
     adressen: (await Promise.all(adressen.map((adres) => enrich.bag.searchVerblijfsobject({
       openbareRuimte: adres.straat._text,
       huisnummer: adres.huisnummerVan._text
@@ -52,19 +51,11 @@ async function transform (dossier) {
   }
 }
 
-const validate = Validate.createValidator('bouwdossiers')
-
-const splitTag = 'dossier'
-
 // ============================================================================
 // Extract:
 // ============================================================================
 H(process.stdin)
-  .splitBy(`</${splitTag}>`)
-  .filter((xml) => xml.trim().startsWith(`<${splitTag}>`))
-  .map((xml) => `${xml}</${splitTag}>`)
-  .map((xml) => convert.xml2js(xml, {compact: true}).dossier)
-  .compact()
+  .through(parseXml('dossier'))
 // ============================================================================
 // Transform:
 // ============================================================================
@@ -77,18 +68,6 @@ H(process.stdin)
     return files.length
   })
   .flatMap((dossier) => H(transform(dossier)))
-  .map((dossier) => validate(dossier))
-  .errors((err, push) => {
-    if (err.name === 'ValidationException') {
-      console.error('Validation error!!!')
-      console.error('Data:')
-      console.error(inspect(err.data))
-      console.error('Errors:')
-      console.error(inspect(err.errors))
-    } else {
-      push(err)
-    }
-  })
 // ============================================================================
 // Load:
 // ============================================================================
