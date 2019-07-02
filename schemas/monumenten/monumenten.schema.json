@@ -24,11 +24,11 @@
     },
     "periodeStart": {
       "description": "Datum (begin)",
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/yearOptionalMonthOptionalDay"
+      "type": "string"
     },
     "periodeEind": {
       "description": "Datum (eind)",
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/yearOptionalMonthOptionalDay"
+      "type": "string"
     },
     "functie":  {
       "description": "Functie",
@@ -45,7 +45,7 @@
     "adres": {
       "description": "Adres",
       "$class": "https://schemas.data.amsterdam.nl/v0.1/bag#nummeraanduiding",
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/uri"
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/uri"
     }
   }
 }

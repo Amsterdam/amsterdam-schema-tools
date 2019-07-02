@@ -8,6 +8,8 @@ const parseJson = require('../parsers/json')
 async function transform (object) {
   return {
     id: object.id,
+    dataset: 'milieuzones',
+    type: 'milieuzone',
     verkeerstype: object.verkeerstype,
     datumVanaf: R.reverse(object.vanafdatum.split('-')).join('-'),
     geometry: JSON.parse(object.geo)

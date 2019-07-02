@@ -21,7 +21,7 @@
     "stadsdeel": {
       "description": "Stadsdeel",
       "$class": "https://schemas.data.amsterdam.nl/v0.1/gebieden#stadsdeel",
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/uri"
+      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/uri"
     },
     "titel": {
       "description": "Titel",
@@ -29,7 +29,7 @@
     },
     "datering": {
       "description": "Datering",
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/yearOptionalMonthOptionalDay"
+      "type": "string"
     },
     "dossiertype": {
       "description": "Dossiertype",
@@ -47,8 +47,8 @@
       "type": "array",
       "description": "Lijst van adressesn waarop dit bouwdossier betrekking heeft",
       "items": {
-        "$id": "https://schemas.data.amsterdam.nl/v0.1/bag#verblijfsobject",
-        "$ref": "https://schemas.data.amsterdam.nl/v0.1/datapunt#/definitions/uri"
+        "$class": "https://schemas.data.amsterdam.nl/v0.1/bag#verblijfsobject",
+        "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/uri"
       }
     },
     "subdossiers": {

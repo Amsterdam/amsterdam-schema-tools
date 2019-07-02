@@ -30,7 +30,7 @@ async function transform (dossier) {
   const dossiernummer = dossier.dossierNr._text
 
   return {
-    id: `${stadsdeelcode}${dossiernummer}`,
+    id: `${stadsdeelcode}${dossiernummer}`.toLowerCase(),
     dataset: 'stadsarchief',
     type: 'bouwdossiers',
     dossiernummer: dossier.dossierNr._text,

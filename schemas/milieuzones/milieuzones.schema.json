@@ -19,6 +19,7 @@
       "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/dataset"
     },
     "verkeerstype": {
+      "description": "Verkeerstype",
       "type": "string",
       "enum": [
         "touringcar",
@@ -29,18 +30,13 @@
       ]
     },
     "datumVanaf": {
+      "description": "Datum vanaf",
       "type": "string",
       "format": "date"
     },
     "geometry": {
-      "oneOf": [
-        {
-          "$ref": "https://geojson.org/schema/Geometry.json"
-        },
-        {
-          "$ref": "https://geojson.org/schema/GeometryCollection.json"
-        }
-      ]
+      "description": "Geometrie",
+      "type": "object"
     }
   }
 }

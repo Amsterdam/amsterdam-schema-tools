@@ -50,7 +50,9 @@ async function transform (object) {
   }
 
   return {
-    id: object.id,
+    id: text(object.Id),
+    dataset: 'monumenten',
+    type: 'pand',
     architect: text(object.Architect),
     periodeStart: text(object.periodeStart),
     periodeEind: text(object.periodeEind),
