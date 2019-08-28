@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ams-schema.glitch.me/datasets/bag/pand",
+  "type": "object",
+  "required": [
+    "id",
+    "dataset",
+    "type",
+    "bouwjaar",
+    "buurt"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "https://ams-schema.glitch.me/datasets/core/schema@v0.0.1#/definitions/id"
+    },
+    "type": {
+      "$ref": "https://ams-schema.glitch.me/datasets/core/schema@v0.0.1#/definitions/type"
+    },
+    "dataset": {
+      "$ref": "https://ams-schema.glitch.me/datasets/core/schema@v0.0.1#/definitions/dataset"
+    },
+    "bouwjaar": {
+      "type": "number",
+      "description": "Bouwjaar van pand."
+    },
+    "verblijfsobjecten": {
+      "type": "array",
+      "items": {
+        "ams.class": "https://schemas.data.amsterdam.nl/v0.1/bag/verblijfsobject",
+        "$ref": "https://ams-schema.glitch.me/datasets/core/schema@v0.0.1#/definitions/uri"
+      },
+      "description": "Lijst van verblijfsobjecten die in dit pand liggen."
+    },
+    "buurt": {
+      "ams.class": "https://schemas.data.amsterdam.nl/v0.1/gebieden/buurt",
+      "$ref": "https://ams-schema.glitch.me/datasets/core/schema@v0.0.1#/definitions/uri",
+      "description": "Buurt waarin dit pand ligt."
+    }
+  }
+}
