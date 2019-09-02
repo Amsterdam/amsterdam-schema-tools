@@ -1,0 +1,7 @@
+version: '3.0'
+services:
+  static-files:
+    build: .
+    volumes:
+      # Format: host path : container path
+      - ./target:/app/target
