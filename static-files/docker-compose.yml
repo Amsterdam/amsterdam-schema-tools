@@ -5,3 +5,6 @@ services:
     volumes:
       # Format: host path : container path
       - ./target:/app/target
+    environment:
+      CMS_OBJECTSTORE_PASSWORD:
+    command: "./static-files.sh"
