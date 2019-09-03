@@ -27,8 +27,9 @@ node {
             withCredentials([[$class: 'StringBinding', credentialsId: 'CMS_Objectstore_key', variable: 'CMS_OBJECTSTORE_PASSWORD']]) {
                 sh "docker-compose -p static-files -f static-files/docker-compose.yml build && " +
                    "docker-compose -p static-files -f static-files/docker-compose.yml run -u root -e environment=ACC --rm static-files"
-        }, {
-            sh "docker-compose -p ds_demo -f static-files//docker-compose.yml down"
+            }, {
+                sh "docker-compose -p ds_demo -f static-files//docker-compose.yml down"
+            }
         }
     }
 
@@ -41,4 +42,5 @@ node {
 //            sh "docker-compose -p ds_demo -f static-files//docker-compose.yml down"
 //        }
 //    }
+
 }
