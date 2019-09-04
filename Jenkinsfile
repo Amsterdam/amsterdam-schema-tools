@@ -40,6 +40,7 @@ node {
         tryStep "PROD", {
             withCredentials([[$class: 'StringBinding', credentialsId: 'CMS_OBJECTSTORE_PASSWORD', variable: 'CMS_OBJECTSTORE_PASSWORD']]) {
                 sh "docker-compose -p static-files -f static-files/docker-compose.yml run -u root -e environment=PROD --rm prod-upload"
+            }
         }, {
             sh "docker-compose -p static-files -f static-files//docker-compose.yml down"
         }
