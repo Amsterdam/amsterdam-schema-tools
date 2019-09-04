@@ -28,19 +28,21 @@ node {
                 sh "docker-compose -p static-files -f static-files/docker-compose.yml build && " +
                    "docker-compose -p static-files -f static-files/docker-compose.yml run -u root -e environment=ACC --rm static-files"
             }
-         }, {
-            sh "docker-compose -p ds_demo -f static-files//docker-compose.yml down"
-        }
+         }
     }
 
-//    stage('Check and build static content on PROD') {
-//        tryStep "PROD", {
-//            withCredentials([[$class: 'StringBinding', credentialsId: 'CMS_OBJECTSTORE_PASSWORD', variable: 'CMS_OBJECTSTORE_PASSWORD']]) {
-//                sh "docker-compose -p static-files -f static-files/docker-compose.yml build && " +
-//                   "docker-compose -p static-files -f static-files/docker-compose.yml run -u root -e environment=PROD -e http_proxy=${JENKINS_HTTP_PROXY_STRING} -e https_proxy=${JENKINS_HTTP_PROXY_STRING} --rm static-files"
-//        }, {
-//            sh "docker-compose -p ds_demo -f static-files//docker-compose.yml down"
-//        }
-//    }
+    stage('Waiting for approval') {
+        slackSend channel: '#ci-channel', color: 'warning', message: 'Schemas are waiting for Production Release - please confirm'
+        input "Deploy to Production?"
+    }
+
+    stage('Upload static content to PROD') {
+        tryStep "PROD", {
+            withCredentials([[$class: 'StringBinding', credentialsId: 'CMS_OBJECTSTORE_PASSWORD', variable: 'CMS_OBJECTSTORE_PASSWORD']]) {
+                sh "docker-compose -p static-files -f static-files/docker-compose.yml run -u root -e environment=PROD --rm prod-upload"
+        }, {
+            sh "docker-compose -p static-files -f static-files//docker-compose.yml down"
+        }
+    }
 
 }

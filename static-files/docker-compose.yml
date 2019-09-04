@@ -8,3 +8,11 @@ services:
     environment:
       CMS_OBJECTSTORE_PASSWORD:
     command: "./static-files.sh"
+
+  prod-upload:
+    build: .
+    volumes:
+      - ./target:/app/target
+    environment:
+      CMS_OBJECTSTORE_PASSWORD:
+    command: "python /app/upload.py"
