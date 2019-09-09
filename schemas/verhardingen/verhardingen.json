@@ -6,10 +6,10 @@
   "language": "nl",
   "items": [
     {
-      "$ref": "objecten.json"
+      "$ref": "objecten@v0.1"
     },
     {
-      "$ref": "inspecties.json"
+      "$ref": "inspecties@v0.1"
     }
   ]
 }
