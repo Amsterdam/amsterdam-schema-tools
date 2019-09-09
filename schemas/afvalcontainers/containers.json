@@ -1,0 +1,9 @@
+{
+  "id": "containers",
+  "type": "class",
+  "title": "Containers",
+  "description": "",
+  "schema": {
+    "$ref": "containers.schema.json"
+  }
+}

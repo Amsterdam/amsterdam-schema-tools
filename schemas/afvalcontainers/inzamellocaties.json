@@ -1,0 +1,9 @@
+{
+  "id": "inzamellocaties",
+  "type": "class",
+  "title": "Inzamellocaties",
+  "description": "",
+  "schema": {
+    "$ref": "inzamellocaties.schema.json"
+  }
+}

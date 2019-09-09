@@ -1,0 +1,18 @@
+{
+  "id": "afvalcontainers",
+  "type": "dataset",
+  "title": "Afvalcontainers",
+  "description": "Afvalcontainers",
+  "language": "nl",
+  "items": [
+    {
+      "$ref": "containers@v0.1"
+    },
+    {
+      "$ref": "putten@v0.1"
+    },
+    {
+      "$ref": "inzamellocaties@v0.1"
+    }
+  ]
+}
