@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ams-schema.glitch.me/dataset/verhardingen/inspectie@v0.1",
+  "type": "object",
+  "required": [
+    "id",
+    "dataset",
+    "class"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id",
+      "description": "Inspectie-ID"
+    },
+    "class": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+    },
+    "dataset": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
+    },
+    "inspectiedatum": {
+      "description": "Inspectiedatum",
+      "type": "string",
+      "format": "date-time"
+    },
+    "crowDwarsonvlakheid": {
+      "description": "",
+      "type": "string"
+    },
+    "crowOneffenheden": {
+      "description": "",
+      "type": "string"
+    },
+    "crowRafeling": {
+      "description": "",
+      "type": "string"
+    },
+    "crowRandschade": {
+      "description": "",
+      "type": "string"
+    },
+    "crowScheurvorming": {
+      "description": "",
+      "type": "string"
+    },
+    "crowVoegvulling": {
+      "description": "",
+      "type": "string"
+    },
+    "crowVoegwijdte": {
+      "description": "",
+      "type": "string"
+    },
+    "crowZetting": {
+      "description": "",
+      "type": "string"
+    },
+    "opmerking": {
+      "description": "",
+      "type": "string"
+    },
+    "verhardingId": {
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/verhardingen/objecten@v0.1",
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
+      "description": "Verharding waarop inspectie van toepassing is"
+    }
+  }
+}

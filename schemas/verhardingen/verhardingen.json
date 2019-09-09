@@ -1,0 +1,15 @@
+{
+  "id": "verhardingen",
+  "type": "dataset",
+  "title": "Verhardingen",
+  "description": "Verhardingen",
+  "language": "nl",
+  "items": [
+    {
+      "$ref": "objecten.json"
+    },
+    {
+      "$ref": "inspecties.json"
+    }
+  ]
+}

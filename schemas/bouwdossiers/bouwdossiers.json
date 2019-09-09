@@ -1,27 +1,27 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.data.amsterdam.nl/v0.1/bouwdossiers",
+  "$id": "https://ams-schema.glitch.me/dataset/bouwdossiers/bouwdossiers@v0.1",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "id",
     "dataset",
-    "type"
+    "class"
   ],
   "properties": {
     "id": {
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/id"
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"
     },
-    "type": {
-      "type": "string"
+    "class": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
     },
     "dataset": {
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/dataset"
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
     },
     "stadsdeel": {
       "description": "Stadsdeel",
-      "$class": "https://schemas.data.amsterdam.nl/v0.1/gebieden#stadsdeel",
-      "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/uri"
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/stadsdelen@v0.1",
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri"
     },
     "titel": {
       "description": "Titel",
@@ -47,8 +47,8 @@
       "type": "array",
       "description": "Lijst van adressesn waarop dit bouwdossier betrekking heeft",
       "items": {
-        "$class": "https://schemas.data.amsterdam.nl/v0.1/bag#verblijfsobject",
-        "$ref": "https://schemas.data.amsterdam.nl/v0.1#/definitions/uri"
+        "ams.$ref.class": "https://ams-schema.glitch.me/dataset/bag/verblijfsobjecten@v0.1",
+        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri"
       }
     },
     "subdossiers": {
