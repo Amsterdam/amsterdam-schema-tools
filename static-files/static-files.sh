@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -x
+
 mkdir -p target/core
 mkdir -p source
 
@@ -35,3 +38,6 @@ git ls-files "schemas/**.json" | while read path; do
   mkdir -p $dir
   git show HEAD:$path > ../../target/dataset/$name
 done
+
+python /app/validate.py
+python /app/upload.py

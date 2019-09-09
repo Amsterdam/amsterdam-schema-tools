@@ -1,2 +1,10 @@
+.idea/
+*.iml
+
+.venv
+venv
+
 node_modules
 cache
+
+/static-files/target
