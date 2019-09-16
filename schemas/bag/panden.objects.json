@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/dataset/bag/panden@v0.1",
+  "$id": "https://ams-schema.glitch.me/dataset/bag/panden.objects@v0.1",
   "type": "object",
   "required": [
     "id",
@@ -32,7 +32,7 @@
       "description": "Lijst van verblijfsobjecten die in dit pand liggen."
     },
     "buurt": {
-      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/buurten@v0.1",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/buurten.objects@v0.1",
       "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
       "description": "Buurt waarin dit pand ligt."
     }

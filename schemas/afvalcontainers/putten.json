@@ -2,8 +2,8 @@
   "id": "putten",
   "type": "class",
   "title": "Putten",
-  "description": "",
+  "description": "Putten",
   "schema": {
-    "$ref": "putten.schema.json"
+    "$ref": "putten.objects.json"
   }
 }

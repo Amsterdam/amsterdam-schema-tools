@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/dataset/bouwdossiers/bouwdossiers@v0.1",
+  "$id": "https://ams-schema.glitch.me/dataset/bouwdossiers/bouwdossiers.objects@v0.1",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -47,7 +47,7 @@
       "type": "array",
       "description": "Lijst van adressesn waarop dit bouwdossier betrekking heeft",
       "items": {
-        "ams.$ref.class": "https://ams-schema.glitch.me/dataset/bag/verblijfsobjecten@v0.1",
+        "ams.$ref.class": "https://ams-schema.glitch.me/dataset/bag/verblijfsobjecten.objects@v0.1",
         "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri"
       }
     },

@@ -4,6 +4,6 @@
   "title": "Objecten",
   "description": "",
   "schema": {
-    "$ref": "objecten.schema.json"
+    "$ref": "objecten.objects.json"
   }
 }

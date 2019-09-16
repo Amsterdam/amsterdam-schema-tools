@@ -2,8 +2,8 @@
   "id": "containers",
   "type": "class",
   "title": "Containers",
-  "description": "",
+  "description": "Containers",
   "schema": {
-    "$ref": "containers.schema.json"
+    "$ref": "containers.objects.json"
   }
 }

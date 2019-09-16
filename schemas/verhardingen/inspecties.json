@@ -4,6 +4,6 @@
   "title": "Inspecties",
   "description": "",
   "schema": {
-    "$ref": "inspecties.schema.json"
+    "$ref": "inspecties.objects.json"
   }
 }

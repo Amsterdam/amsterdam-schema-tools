@@ -2,8 +2,8 @@
   "id": "inzamellocaties",
   "type": "class",
   "title": "Inzamellocaties",
-  "description": "",
+  "description": "Inzamellocaties",
   "schema": {
-    "$ref": "inzamellocaties.schema.json"
+    "$ref": "inzamellocaties.objects.json"
   }
 }

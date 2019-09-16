@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/dataset/verhardingen/objecten.schema@v0.1",
+  "$id": "https://ams-schema.glitch.me/dataset/verhardingen/objecten.objects@v0.1",
   "type": "object",
   "required": [
     "id",
@@ -115,7 +115,7 @@
       "description": "Grondsoort plus"
     },
     "buurt": {
-      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/buurten",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/buurten.objects",
       "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
       "description": "Buurt waarin object ligt"
     },
@@ -128,7 +128,7 @@
       "description": "Buurtnaam"
     },
     "wijk": {
-      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/wijken",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/wijken.objects",
       "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
       "description": "Wijk waarin object ligt"
     },
@@ -141,7 +141,7 @@
       "description": "Wijknaam"
     },
     "stadsdeel": {
-      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/stadsdelen",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/stadsdelen.objects",
       "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
       "description": "Stadsdeel waarin object ligt"
     },

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/dataset/nap/peilmerken@v0.1",
+  "$id": "https://ams-schema.glitch.me/dataset/nap/peilmerken.objects@v0.1",
   "type": "object",
   "additionalProperties": false,
   "required": [],
@@ -56,7 +56,7 @@
     },
     "ligt_in_bouwblok": {
       "description": "Het bouwblok waarbinnen het peilmerk ligt",
-      "ams.$ref.class": "https://ams-schema.glitch.me/gebieden/bouwblokken@v0.1",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/bouwblokken.objects@v0.1",
       "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri"
     },
     "publiceerbaar": {

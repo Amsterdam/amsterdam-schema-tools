@@ -1,8 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/dataset/milieuzones/milieuzones@v0.1",
+  "$id": "https://ams-schema.glitch.me/dataset/afvalcontainers/putten.objects@v0.1",
   "type": "object",
-  "additionalProperties": false,
   "required": [
     "id",
     "dataset",
@@ -18,23 +17,7 @@
     "dataset": {
       "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
     },
-    "verkeerstype": {
-      "description": "Verkeerstype",
-      "type": "string",
-      "enum": [
-        "touringcar",
-        "brom- en snorfiets",
-        "taxi",
-        "bestel",
-        "vracht"
-      ]
-    },
-    "datumVanaf": {
-      "description": "Datum vanaf",
-      "type": "string",
-      "format": "date"
-    },
-    "geometry": {
+    "geometrie": {
       "$ref": "https://geojson.org/schema/Geometry.json"
     }
   }

@@ -1,7 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/dataset/afvalcontainers/containers.schema@v0.1",
+  "$id": "https://ams-schema.glitch.me/dataset/milieuzones/milieuzones.objects@v0.1",
   "type": "object",
+  "additionalProperties": false,
   "required": [
     "id",
     "dataset",
@@ -17,15 +18,24 @@
     "dataset": {
       "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
     },
-    "fractie": {
+    "verkeerstype": {
+      "description": "Verkeerstype",
       "type": "string",
       "enum": [
-        "rest",
-        "glas",
-        "papier",
-        "plastic",
-        "textiel"
+        "touringcar",
+        "brom- en snorfiets",
+        "taxi",
+        "bestel",
+        "vracht"
       ]
+    },
+    "datumVanaf": {
+      "description": "Datum vanaf",
+      "type": "string",
+      "format": "date"
+    },
+    "geometry": {
+      "$ref": "https://geojson.org/schema/Geometry.json"
     }
   }
 }
