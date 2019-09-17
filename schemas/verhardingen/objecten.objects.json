@@ -7,7 +7,7 @@
     "dataset",
     "class"
   ],
-  "$comment": "",
+  "$comment": "SELECT bk_bor_verharding AS id, 'objecten' AS class, 'verhardingen' AS dataset, breedte, adam_functie, jaarvanaanleg, kleur, geometrie FROM int.bor_verharding",
   "properties": {
     "id": {
       "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id",
