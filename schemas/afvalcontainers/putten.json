@@ -1,9 +1,0 @@
-{
-  "id": "putten",
-  "type": "class",
-  "title": "Putten",
-  "description": "Putten",
-  "schema": {
-    "$ref": "putten.objects.json"
-  }
-}

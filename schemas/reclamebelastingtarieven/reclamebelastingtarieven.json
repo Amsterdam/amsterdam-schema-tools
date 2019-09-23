@@ -1,0 +1,15 @@
+{
+  "id": "reclamebelastingtarieven",
+  "type": "dataset",
+  "title": "Reclamebelastingtarieven",
+  "crs": "EPSG:28992",
+  "items": [
+    {
+      "id": "reclamebelastingtarieven",
+      "type": "class",
+      "items": [
+        "reclamebelastingtarieven.objects.json"
+      ]
+    }
+  ]
+}

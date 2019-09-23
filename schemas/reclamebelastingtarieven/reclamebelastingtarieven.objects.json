@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ams-schema.glitch.me/dataset/reclamebelastingtarieven/reclamebelastingtarieven",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "dataset",
+    "class"
+  ],
+  "properties": {
+    "class": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+    },
+    "dataset": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
+    },
+    "id": {
+      "type": "number",
+      "description": ""
+    },
+    "tarief": {
+      "type": "string",
+      "description": ""
+    }
+  }
+}

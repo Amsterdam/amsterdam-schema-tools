@@ -17,6 +17,35 @@
     "dataset": {
       "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
     },
+    "serienummer": {
+      "type": "string"
+    },
+    "leverancier": {
+      "type": "string"
+    },
+    "status": {
+      "type": "number"
+    },
+    "datumCreatie": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "datumPlaatsing": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "datumInGebruik": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "datumAfgelopenGarantie": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "locatie": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/afvalcontainers/containerlocaties.objects@v0.1"
+    },
     "fractie": {
       "type": "string",
       "enum": [

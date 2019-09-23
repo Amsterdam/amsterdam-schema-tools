@@ -6,13 +6,13 @@
   "language": "nl",
   "items": [
     {
+      "$ref": "clusters@v0.1"
+    },
+    {
+      "$ref": "containerlocaties@v0.1"
+    },
+    {
       "$ref": "containers@v0.1"
-    },
-    {
-      "$ref": "putten@v0.1"
-    },
-    {
-      "$ref": "inzamellocaties@v0.1"
     }
   ]
 }

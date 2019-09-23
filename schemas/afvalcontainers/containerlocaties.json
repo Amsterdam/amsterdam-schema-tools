@@ -1,0 +1,9 @@
+{
+  "id": "putten",
+  "type": "class",
+  "title": "Putten",
+  "description": "Containerlocaties",
+  "schema": {
+    "$ref": "containerlocaties.objects.json"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ams-schema.glitch.me/dataset/afvalcontainers/clusters.objects@v0.1",
+  "type": "object",
+  "required": [
+    "id",
+    "dataset",
+    "class"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"
+    },
+    "class": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+    },
+    "dataset": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
+    },
+    "datumOnstaanOp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "openbareRuimte": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/bag/openbareruimtes.objects@v0.1"
+    },
+    "nabijAdres": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/bag/verblijfsobjecten.objects@v0.1"
+    },
+    "buurt": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/buurten.objects@v0.1"
+    },
+    "wijk": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/wijken.objects@v0.1"
+
+    },
+    "stadsdeel": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/stadsdelen.objects@v0.1"
+    },
+    "geometrie": {
+      "$ref": "https://geojson.org/schema/Geometry.json"
+    }
+  }
+}

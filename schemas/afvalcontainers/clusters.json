@@ -1,0 +1,9 @@
+{
+  "id": "clusters",
+  "type": "class",
+  "title": "Clusters/Aanbiedlocaties",
+  "description": "Clusters/Aanbiedlocaties",
+  "schema": {
+    "$ref": "clusters.objects.json"
+  }
+}
