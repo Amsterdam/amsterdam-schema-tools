@@ -9,6 +9,10 @@
     "class"
   ],
   "properties": {
+    "id": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id",
+      "description": "ID"
+    },
     "class": {
       "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
     },
@@ -58,10 +62,6 @@
     "kadaster": {
       "type": "string",
       "description": "Kadastraal nummer"
-    },
-    "id": {
-      "type": "number",
-      "description": "ID"
     }
   }
 }

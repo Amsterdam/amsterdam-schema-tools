@@ -1,0 +1,10 @@
+{
+  "id": "monumenten",
+  "type": "class",
+  "title": "Monumenten",
+  "description": "Monumenten",
+  "ams.auth": null,
+  "schema": {
+    "$ref": "monumenten.objects.json"
+  }
+}

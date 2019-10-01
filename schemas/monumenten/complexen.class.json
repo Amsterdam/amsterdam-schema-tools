@@ -1,0 +1,10 @@
+{
+  "id": "complexen",
+  "type": "class",
+  "title": "Complexen",
+  "description": "Complexen",
+  "auth": null,
+  "schema": {
+    "$ref": "complexen.objects.json"
+  }
+}

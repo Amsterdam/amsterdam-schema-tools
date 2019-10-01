@@ -10,41 +10,101 @@
   ],
   "properties": {
     "id": {
-      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id",
+      "auth": ["public"]
     },
     "class": {
-      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class",
+      "auth": ["public"]
     },
     "dataset": {
-      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset",
+      "auth": ["public"]
+    },
+    "title": {
+      "type": "string",
+      "auth": ["public"]
+    },
+    "monumentnummer": {
+      "type": "string",
+      "auth": ["public"]
+    },
+    "monumentnaam": {
+      "type": "string",
+      "auth": ["public"]
+    },
+    "monumentstatus": {
+      "type": "string",
+      "auth": ["public"]
+    },
+    "Aanwijzingsdatum": {
+      "type": "string",
+      "format": "date-time",
+      "auth": ["public"]
+    },
+    "betreftPand":{
+      "type": "array",
+      "items": {
+        "ams.$ref.class": "https://ams-schema.glitch.me/dataset/bag/panden.objects@v0.1",
+        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri"
+      },
+      "auth": ["public"]
+    },
+    "ligtInComplex": {
+      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/monumenten/complexen.objects@v0.1",
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
+      "auth": ["public"]
+    },
+    "in_onderzoek": {
+      "type": "string",
+      "auth": ["public"]
+    },
+    "point": {
+      "$ref": "https://geojson.org/schema/Point.json",
+      "auth": ["public"]
     },
     "architect": {
-      "description": "Naam van architect",
-      "type": "string"
+      "type": "string",
+      "auth": ["ambtenaar"]
     },
-    "periodeStart": {
+    "monumenttype": {
+      "type": "string",
+      "description": "Type monument",
+      "auth": ["ambtenaar"]
+    },
+    "opdrachtgever": {
+      "type": "string",
+      "auth": ["ambtenaar"]
+    },
+    "bouwjaarBouwperiodeStart": {
       "description": "Datum (begin)",
-      "type": "string"
+      "type": "string",
+      "auth": ["ambtenaar"]
     },
-    "periodeEind": {
+    "bouwjaarBouwperiodeEind": {
       "description": "Datum (eind)",
-      "type": "string"
+      "type": "string",
+      "auth": ["ambtenaar"]
     },
-    "functie":  {
-      "description": "Functie",
-      "type": "string"
+    "oorspronkelijkeFunctie": {
+      "type": "string",
+      "auth": ["ambtenaar"]
     },
     "geometry": {
-      "$ref": "https://geojson.org/schema/Geometry.json"
+      "$ref": "https://geojson.org/schema/Geometry.json",
+      "auth": ["ambtenaar"]
     },
     "beschrijving": {
-      "description": "Omschrijving",
-      "type": "string"
+      "type": "string",
+      "auth": ["ambtenaar"]
     },
-    "adres": {
-      "description": "Adres",
-      "ams.$ref.class": "https://ams-schema.glitch.me/dataset/bag/nummeraanduiding.objects@v0.1",
-      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri"
+    "redengevendeBeschrijving": {
+      "type": "string",
+      "auth": ["ambtenaar"]
+    },
+    "beschrijvingComplex": {
+      "type": "string",
+      "auth": ["ambtenaar"]
     }
   }
 }

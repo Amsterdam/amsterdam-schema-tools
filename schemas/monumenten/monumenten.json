@@ -1,0 +1,16 @@
+{
+  "id": "monumenten",
+  "type": "dataset",
+  "title": "Monumenten",
+  "description": "Monumenten",
+  "language": "nl",
+  "auth": null,
+  "items": [
+    {
+      "$ref": "complexen.class@v0.1"
+    },
+    {
+      "$ref": "monumenten.class@v0.1"
+    }
+  ]
+}
